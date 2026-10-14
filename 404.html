@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5C Halal Menu has moved</title>
+  <link rel="canonical" href="https://5cmsa.github.io/5c-halal-menu/">
+  <meta http-equiv="refresh" content="3; url=https://5cmsa.github.io/5c-halal-menu/">
+  <script>
+    // The site moved to the Claremont MSA's account. Clear what the old copy
+    // saved on this device, then go to the new address, keeping the day and
+    // meal that were in the link.
+    (async () => {
+      const target = 'https://5cmsa.github.io/5c-halal-menu/' + location.search + location.hash;
+      try {
+        for (const worker of (await navigator.serviceWorker?.getRegistrations()) ?? []) await worker.unregister();
+        for (const name of (await self.caches?.keys()) ?? []) await self.caches.delete(name);
+      } catch {
+        // Nothing saved, or the browser won't say: just move on.
+      }
+      location.replace(target);
+    })();
+  </script>
+</head>
+<body>
+  <p>5C Halal Menu has moved to <a href="https://5cmsa.github.io/5c-halal-menu/">5cmsa.github.io/5c-halal-menu</a>.</p>
+</body>
+</html>
